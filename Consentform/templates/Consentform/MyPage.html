@@ -1,0 +1,44 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Welcome to the experiment
+{% endblock %}
+
+{% block content %}
+<p> <b>Consent form</b></p>
+
+<p>  In relation to my exam in social and cultural dynamics in cognition I want to investigate game theory and behavior
+    dynamics.
+    <p> In this project you will be playing an ultimatum game with other participants. You will be asked at some point of the
+    experiment to share information about yourself with another participant. You only have to share information you feel
+    comfortable with, and you are in complete control over what you choose to share.
+    </p>
+
+    Your data will be used in an analysis in relation to my exam and will not be shared with a third-party.The experiment is expected to last between 20-25 minutes.
+
+<p>
+<p>Your participation is completely voluntary. </p>If you have questions about your participation, your data or if you want
+    to withdraw your consent, send a mail to:
+ </p>
+<p>
+201908918@post.au.dk </p>
+
+By pressing “yes” you accept above terms. You acknowledge the following:
+<p>
+</p>
+<p>•	Your participation is voluntary </p>
+<p>•	You are at least 18 years old</p>
+<p>•	You can at any time stop the experiment and withdraw your consent with no questions asked</p>
+ </p>
+
+<p>
+    {% formfield player.consent label="I consent to participate in this experiment"%}
+</p>
+<p>Please type in a personal ID. If you withdraw your consent you will need to
+remember this number. </p>
+    {% formfield player.personal_ID %}
+
+    {% next_button %}
+
+{% endblock %}

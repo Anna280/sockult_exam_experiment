@@ -1,0 +1,58 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Round {{ subsession.round_number }} of {{ Constants.num_rounds }}
+{% endblock %}
+
+{% block content %}
+
+    <table class="table">
+        <tr>
+<td> <b><font color="#228b22"> You are playing anonymously with the responder </font></b>
+</td>
+        </tr>
+        <td>
+
+            </td>
+
+    <h4>Round history</h4>
+    <table class="table">
+        <tr>
+            <th>Round</th>
+            <th>Money sent</th>
+            <th>Your gain in round</th>
+            <th>Outcome</th>
+    </tr>
+        {% for p in player_in_previous_rounds %}
+            <tr>
+                <td>{{ p.round_number }}</td>
+                <td>{{ p.Offer }}</td>
+                <td>{{ p.payoff }}</td>
+                <td>
+                    {% if p.bot_side == 'Accept' %} your proposal was <b> Accepted</b> and you keep the remaining money
+                    in the round
+                    {% else %} your proposal was <b>Declined</b>  and you lost all money in the round {% endif %} </td>
+            </tr>
+                {% endfor %}
+
+
+
+    </table>
+
+    <p>
+         You are the <b>{{ player.role }}</b>.
+    </p>
+    <p>
+    The proposer's task is to split 100$ between themselves and the other player. You need to maxmize your own gain across all rounds. The responder can either
+    accept or decline the offer you propose. If the offer is accepted you keep the remaining money (100$ minus the amount you choose to send), but if
+    the responder decline the offer, you lose all money in the round.
+    </p>
+
+        <p>
+        You have $100 to split
+    </p>
+    {% formfield player.Offer label="I choose to <b><font>send</font></b>" %}
+
+    {% next_button %}
+{% endblock %}

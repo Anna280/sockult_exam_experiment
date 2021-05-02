@@ -1,0 +1,17 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Please answer following questions
+{% endblock %}
+
+{% block content %}
+
+ {% formfield player.Age label="How old are you (in whole numbers)?"%}
+
+ {% formfield player.Gender label="What is your gender?"%}
+
+    {% next_button %}
+{% endblock %}
+
+

@@ -1,0 +1,28 @@
+.next {
+    float: right;
+    margin: 40px auto;
+    }
+
+ .back{
+    float: left;
+    margin: 40px auto;
+    }
+
+
+
+    .page-header {
+    margin: 0px 0 5px;
+    padding: 0;
+    border-bottom: none;
+    text-align: center;
+}
+
+p{
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+
+.nav {
+    visibility: hidden;
+}

@@ -1,0 +1,104 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block scripts %}
+
+<script type="text/javascript">
+window.addEventListener('keydown',function(e){if(e.keyIdentifier=='U+000A'||e.keyIdentifier=='Enter'||e.keyCode==13){if(e.target.nodeName=='INPUT'&&e.target.type=='text'){e.preventDefault();return false;}}},true);
+</script>
+
+<script src="{% static 'back_button_v3/js/prev_next_button.js' %}"></script>
+
+{% endblock %}
+
+
+{% block styles %}
+
+<link href="{% static 'back_button_v3/css/custom.css' %}" rel="stylesheet">
+
+{% endblock %}
+
+
+{% block content %}
+
+<!-- Tab navigation -->
+<ul class="nav nav-tabs fixed-top navbar-light bg-light justify-content-center " id="myTab" role="tablist">
+
+
+  <li class="nav-item" >
+    <a class="nav-link active" id="part1-tab" data-toggle="tab" href="#part1" role="tab" aria-controls="part1" onclick="topFunction()"> Tab 1
+</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="part2-tab" data-toggle="tab" href="#part2" role="tab" aria-controls="part2" onclick="topFunction()">Tab 2</a>
+  </li>
+
+</ul>
+<br>
+<br>
+
+<!-- Tab content -->
+<div class="tab-content" id="myTabContent">
+
+  <div class="tab-pane show active" id="part1" role="tabpanel" aria-labelledby="part1-tab">
+
+
+<div class="card-header bg-transparent mainheader" >
+ <h3 class="card-title font-weight-bold"> Share some information about yourself
+ </h3>
+  </div>
+<br>
+
+
+<p>
+    In the next rounds you will be paired with new players. Before you begin the next games, I would like to
+ask you to share a little about yourself (3-5 sentences). What you write will be displayed to the other player and what the
+other player writes will be shared with you in the next rounds.</p>
+
+<p> Here are some ideas for what you can write:</p>
+<p> What do you do for a living? Do you enjoy it? </p>
+<p> What do you like to do in your spare time? </p>
+<p> Have you been doing anything special during corona-lockdown?</p>
+
+ <p> Feel free to add other things to your description </p>
+
+ <p> <b> Here is an example of how a description could look:</b> </p>
+ <p> I work as a barista at starbucks which i enjoy quite a lot. In my spare time I hang out
+ with my friends and drink a lot of coffee. I plan to start on a bachelor in english at Aarhus university after
+ the summer break. I have not been doing anything special during lockdown. </p>
+
+    {% formfield player.about_you label="Please write in the box below (in english)" %}
+
+
+<button onclick="topFunction()" type="button" class="nexttab btn-primary btn next">Next</button>
+  </div>
+
+
+
+
+<div class="tab-pane" id="part2" role="tabpanel" aria-labelledby="part2-tab">
+
+
+<div class="card-header bg-transparent mainheader" >
+ <h3 class="card-title font-weight-bold"> Satisfied? </h3>
+  </div>
+<br>
+
+    <p> If you are satisfied with your text press next. If not, you can go back and change it. </p>
+
+
+    <button onclick="topFunction()" type="button" class="prevtab btn-primary btn back">Back</button>
+<button class="nexttab btn-primary btn next">Next</button>
+  </div>
+
+
+</div>
+
+</body>
+
+
+{% endblock %}

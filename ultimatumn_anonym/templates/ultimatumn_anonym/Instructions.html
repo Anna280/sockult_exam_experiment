@@ -1,0 +1,30 @@
+{% load otree %}
+
+<div class="card bg-light instructions">
+
+    <h3>
+        Instructions
+    </h3>
+
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'global/matrix.css' %}"/>
+    <p>
+        This is an ultimatum game.
+        To play, you will be paired with another player on the server.
+        You and the other player will either be assigned the role as <font><b>"proposer"</font></b> or as <font><b>"responder"</font></b>.
+        The proposer's task is to split 100$ between themselves and the other player. The responder can either
+        accept or decline the offer. If the offer is accepted the proposer keeps the remaining money, but if
+        the responder declines the proposer lose all their money.
+    </p>
+
+        <p>
+Example of the game: The proposer chooses to <b>send</b> $20 to the responder.
+            If the responder <b>accepts</b>  the offer of $20 they keep $20, and the proposer keeps $80 (the remaining money).
+            If the responder <b>declines</b> the offer you both gain $0 in that round.
+    </p>
+
+    <p> <br>
+        In this game <b><font> you have been assigned the role as proposer</font></b>, and the <b><font> other player
+        is the responder</font></b>. You need to maxmize your own gain across all rounds and end with as much money as possible.
+    </p>
+</div>

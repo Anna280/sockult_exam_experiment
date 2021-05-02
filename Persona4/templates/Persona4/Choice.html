@@ -1,0 +1,67 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Round {{ subsession.round_number }} of {{ Constants.num_rounds }}
+{% endblock %}
+
+{% block content %}
+
+
+
+    <table class="table">
+        <tr>
+             <td><b><font color="#008000"> The responders description:  </font></b> I am 23 years old and work part time in Bilka in the garden
+                department. I like taking rides on my motorcycle. I enjoy gardening, cooking and spending time
+                with my friends and play with my cat. I am trying to get a job as an environmental technologist.
+                I am not doing much during these times, looking forward to an open world again so I can travel.
+</td>
+        </tr>
+        <td>
+
+            </td>
+    </table>
+
+    <h4>Round history</h4>
+    <table class="table">
+        <tr>
+            <th>Round</th>
+            <th>Money sent</th>
+            <th>Your gain in round</th>
+            <th>Outcome</th>
+    </tr>
+        {% for p in player_in_previous_rounds %}
+            <tr>
+                <td>{{ p.round_number }}</td>
+                <td>{{ p.Offer }}</td>
+                <td>{{ p.payoff }}</td>
+                <td>
+                    {% if p.bot_side == 'Accept' %} your proposal was <b> Accepted</b> and you keep the remaining money
+                    in the round
+                    {% else %} your proposal was <b>Declined</b>  and you lost all money in the round {% endif %} </td>
+            </tr>
+                {% endfor %}
+
+
+
+    </table>
+
+  <p>
+  </p>
+
+        <p>
+        You have $100 to split
+    </p>
+    <p>
+         You are the <b>{{ player.role }}</b>.
+    </p>
+    <p>
+    The proposer's task is to split 100$ between themselves and the other player. You need to maxmize your own gain across all rounds. The responder can either
+    accept or decline the offer you propose. If the offer is accepted the proposer keeps the remaining money (100$ minus the amount you choose to send), but if
+    the responder decline the offer, you lose all money in the round.
+    </p>
+
+    {% formfield player.Offer label="I choose to <b><font>send</font></b>" %}
+
+    {% next_button %}
+{% endblock %}

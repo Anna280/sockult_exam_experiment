@@ -1,0 +1,17 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Final results
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        Your total gain is <b>{{ sum_payoff }}</b>.
+        <br> <br>
+
+{% next_button %}
+
+
+{% endblock %}
